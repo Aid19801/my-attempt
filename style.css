@@ -16,3 +16,11 @@ h1 {
   text-align: center;
   width: 100%;
 }
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+}

@@ -4,36 +4,121 @@
       "id": 1,
       "currency": "USD",
       "balance": 100985,
+      "savings": 90001,
+      "homeOwner": true,
       "country": "United States",
-      "accNumber": 1
+      "accNumber": 1,
+      "age": 57
     },
     {
       "id": 2,
-      "currency": "GBP",
+      "currency": "USD",
       "balance": 3009,
+      "savings": 309,
+      "homeOwner": false,
       "country": "United Kingdom",
-      "accNumber": 2
+      "accNumber": 2,
+      "age": 28
     },
     {
       "id": 3,
-      "currency": "GBP",
-      "balance": 201900,
+      "currency": "USD",
+      "balance": 98900,
+      "savings": 9005,
+      "homeOwner": true,
       "country": "United States",
-      "accNumber": 3
+      "accNumber": 3,
+      "age": 38
     },
     {
       "id": 4,
-      "currency": "EUR",
+      "currency": "USD",
       "balance": 15000,
+      "savings": 7000,
+      "homeOwner": false,
       "country": "Ireland",
-      "accNumber": 4
+      "accNumber": 4,
+      "age": 19
     },
     {
       "id": 5,
       "currency": "USD",
       "balance": 16300,
+      "savings": 39000,
+      "homeOwner": true,
       "country": "United States",
-      "accNumber": 5
+      "accNumber": 5,
+      "age": 43
+    },
+    {
+      "id": 6,
+      "currency": "USD",
+      "balance": 27000,
+      "savings": 33000,
+      "homeOwner": true,
+      "country": "United States",
+      "accNumber": 6,
+      "age": 35
+    },
+    {
+      "id": 7,
+      "currency": "USD",
+      "balance": 33000,
+      "savings": 90001,
+      "homeOwner": true,
+      "country": "United States",
+      "accNumber": 7,
+      "age": 57
+    },
+    {
+      "id": 8,
+      "currency": "USD",
+      "balance": 49000,
+      "savings": 309,
+      "homeOwner": false,
+      "country": "United Kingdom",
+      "accNumber": 8,
+      "age": 28
+    },
+    {
+      "id": 9,
+      "currency": "USD",
+      "balance": 89000,
+      "savings": 9005,
+      "homeOwner": true,
+      "country": "United States",
+      "accNumber": 9,
+      "age": 38
+    },
+    {
+      "id": 10,
+      "currency": "USD",
+      "balance": 33000,
+      "savings": 7000,
+      "homeOwner": false,
+      "country": "Ireland",
+      "accNumber": 10,
+      "age": 19
+    },
+    {
+      "id": 11,
+      "currency": "USD",
+      "balance": 43400,
+      "savings": 39000,
+      "homeOwner": true,
+      "country": "United States",
+      "accNumber": 11,
+      "age": 43
+    },
+    {
+      "id": 12,
+      "currency": "USD",
+      "balance": 81000,
+      "savings": 33000,
+      "homeOwner": true,
+      "country": "United States",
+      "accNumber": 12,
+      "age": 35
     }
   ]
 }
