@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "currency": "USD",
+      "balance": 100985,
+      "country": "United States",
+      "accNumber": 1
+    },
+    {
+      "id": 2,
+      "currency": "GBP",
+      "balance": 3009,
+      "country": "United Kingdom",
+      "accNumber": 2
+    },
+    {
+      "id": 3,
+      "currency": "GBP",
+      "balance": 201900,
+      "country": "United States",
+      "accNumber": 3
+    },
+    {
+      "id": 4,
+      "currency": "EUR",
+      "balance": 15000,
+      "country": "Ireland",
+      "accNumber": 4
+    },
+    {
+      "id": 5,
+      "currency": "USD",
+      "balance": 16300,
+      "country": "United States",
+      "accNumber": 5
+    }
+  ]
+}

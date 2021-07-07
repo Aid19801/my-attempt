@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "accNumber": 1,
+      "accName": "John Doe"
+    },
+    {
+      "accNumber": 2,
+      "accName": "Sally Jefferson"
+    },
+    {
+      "accNumber": 3,
+      "accName": "Mohammed Bin Fayed"
+    },
+    {
+      "accNumber": 4,
+      "accName": "Jo Li Yeung"
+    },
+    {
+      "accNumber": 5,
+      "accName": "Matt Fairfax-Osborne"
+    }
+  ]
+}
