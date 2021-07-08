@@ -3,7 +3,7 @@
     {
       "id": 1,
       "currency": "USD",
-      "balance": 100985,
+      "balance": 78985,
       "savings": 90001,
       "homeOwner": true,
       "country": "United States",
@@ -13,7 +13,7 @@
     {
       "id": 2,
       "currency": "USD",
-      "balance": 3009,
+      "balance": 13009,
       "savings": 309,
       "homeOwner": false,
       "country": "United Kingdom",
@@ -23,7 +23,7 @@
     {
       "id": 3,
       "currency": "USD",
-      "balance": 98900,
+      "balance": 76900,
       "savings": 9005,
       "homeOwner": true,
       "country": "United States",
@@ -33,17 +33,17 @@
     {
       "id": 4,
       "currency": "USD",
-      "balance": 15000,
+      "balance": 25000,
       "savings": 7000,
       "homeOwner": false,
       "country": "Ireland",
       "accNumber": 4,
-      "age": 19
+      "age": 39
     },
     {
       "id": 5,
       "currency": "USD",
-      "balance": 16300,
+      "balance": 36300,
       "savings": 39000,
       "homeOwner": true,
       "country": "United States",
@@ -83,7 +83,7 @@
     {
       "id": 9,
       "currency": "USD",
-      "balance": 89000,
+      "balance": 59000,
       "savings": 9005,
       "homeOwner": true,
       "country": "United States",
@@ -98,7 +98,7 @@
       "homeOwner": false,
       "country": "Ireland",
       "accNumber": 10,
-      "age": 19
+      "age": 29
     },
     {
       "id": 11,
@@ -113,7 +113,7 @@
     {
       "id": 12,
       "currency": "USD",
-      "balance": 81000,
+      "balance": 71000,
       "savings": 33000,
       "homeOwner": true,
       "country": "United States",

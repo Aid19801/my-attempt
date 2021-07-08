@@ -1,6 +1,6 @@
 var height = 500;
 var width = 600;
-var padding = 50;
+var padding = 70;
 
 // pull in the data
 d3.queue()
@@ -21,20 +21,28 @@ d3.queue()
     // 2. CREATE SCALES AND AXIS
     var yScale = d3
       .scaleLinear()
-      .domain(d3.extent(updatedData, (d) => d.balance)) // Y = balance
+      .domain([
+        d3.min(updatedData, (d) => d.balance) - 10000,
+        d3.max(updatedData, (d) => d.balance) + 10000,
+      ]) // Y = balance
+      // .domain(d3.extent(updatedData, (d) => d.balance)) // Y = balance
       .range([height - padding, 0]);
     // Vertical is their current account balance
-    var yAxis = d3
-      .axisLeft(yScale)
-      .tickSize(-width + 2 * padding)
-      .tickSizeOuter(0);
+    var yAxis = d3.axisLeft(yScale);
+    // .tickSize(-width + 2 * padding)
+    // .tickSizeOuter(0);
 
     var xScale = d3
       .scaleLinear()
-      .domain(d3.extent(updatedData, (d) => d.age)) // X = age
+      .domain([
+        d3.min(updatedData, (d) => d.age - 10),
+        d3.max(updatedData, (d) => d.age) + 10,
+      ]) // Y = balance
+      // .domain(d3.extent(updatedData, (d) => d.age)) // X = age
       .range([padding, width - padding]);
     // Horizontal is their age
-    var xAxis = d3.axisBottom(xScale).tickSize(-height + 2 * padding);
+
+    var xAxis = d3.axisBottom(xScale); // .tickSize(-height + 2 * padding);
 
     var rScale = d3
       .scaleLinear()
