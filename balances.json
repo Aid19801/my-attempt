@@ -4,21 +4,21 @@
       "id": 1,
       "currency": "USD",
       "balance": 78985,
-      "savings": 90001,
+      "savings": 82001,
       "homeOwner": true,
       "country": "United States",
       "accNumber": 1,
-      "age": 57
+      "age": 26
     },
     {
       "id": 2,
       "currency": "USD",
       "balance": 13009,
-      "savings": 309,
+      "savings": 41098,
       "homeOwner": false,
       "country": "United Kingdom",
       "accNumber": 2,
-      "age": 28
+      "age": 30
     },
     {
       "id": 3,
@@ -28,17 +28,17 @@
       "homeOwner": true,
       "country": "United States",
       "accNumber": 3,
-      "age": 38
+      "age": 35
     },
     {
       "id": 4,
       "currency": "USD",
       "balance": 25000,
-      "savings": 7000,
+      "savings": 12000,
       "homeOwner": false,
       "country": "Ireland",
       "accNumber": 4,
-      "age": 39
+      "age": 40
     },
     {
       "id": 5,
@@ -48,7 +48,7 @@
       "homeOwner": true,
       "country": "United States",
       "accNumber": 5,
-      "age": 43
+      "age": 45
     },
     {
       "id": 6,
@@ -58,7 +58,7 @@
       "homeOwner": true,
       "country": "United States",
       "accNumber": 6,
-      "age": 35
+      "age": 50
     },
     {
       "id": 7,
@@ -68,17 +68,17 @@
       "homeOwner": true,
       "country": "United States",
       "accNumber": 7,
-      "age": 57
+      "age": 55
     },
     {
       "id": 8,
       "currency": "USD",
       "balance": 49000,
-      "savings": 309,
+      "savings": 11000,
       "homeOwner": false,
       "country": "United Kingdom",
       "accNumber": 8,
-      "age": 28
+      "age": 60
     },
     {
       "id": 9,
@@ -88,17 +88,17 @@
       "homeOwner": true,
       "country": "United States",
       "accNumber": 9,
-      "age": 38
+      "age": 65
     },
     {
       "id": 10,
       "currency": "USD",
       "balance": 33000,
-      "savings": 7000,
+      "savings": 13900,
       "homeOwner": false,
       "country": "Ireland",
       "accNumber": 10,
-      "age": 29
+      "age": 70
     },
     {
       "id": 11,
@@ -108,7 +108,7 @@
       "homeOwner": true,
       "country": "United States",
       "accNumber": 11,
-      "age": 43
+      "age": 75
     },
     {
       "id": 12,
@@ -118,7 +118,7 @@
       "homeOwner": true,
       "country": "United States",
       "accNumber": 12,
-      "age": 35
+      "age": 80
     }
   ]
 }

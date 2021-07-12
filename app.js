@@ -1,106 +1,120 @@
 var height = 500;
 var width = 600;
-var padding = 70;
+var padding = 30;
 
-// pull in the data
+function createXScale(myData, value, dims) {
+  const { width, padding } = dims;
+  const min = d3.min(myData, (d) => d[value]) * 0.6;
+  const max = d3.max(myData, (d) => d[value]) * 1.1;
+
+  let xScale = d3
+    .scaleLinear()
+    .domain([min, max])
+    .range([padding, width - padding]);
+  return xScale;
+}
+function createYScale(myData, value, dims) {
+  const { height, padding } = dims;
+  const min = d3.min(myData, (d) => d[value]) * 0.8;
+  const max = d3.max(myData, (d) => d[value]) * 1.1;
+  console.log("THE MAX IS ", max);
+  let yScale = d3
+    .scaleLinear()
+    .domain([min, max])
+    .range([height - padding, padding]);
+  return yScale;
+}
+function createRadiusScale(myData, value, dims) {
+  let min = d3.min(myData, (d) => d[value]);
+  let max = d3.max(myData, (d) => d[value]);
+  let rScale = d3.scaleLinear().domain([min, max]).range([0, 20]);
+  return rScale;
+}
+function createColorScale(myData, value) {
+  let cScale = d3
+    .scaleLinear()
+    .domain(d3.extent(myData, (d) => d[value]))
+    .range(["red", "green"]);
+  return cScale;
+}
+function createXAxis(myData, value, dims) {
+  const { height, padding } = dims;
+  let xScale = createXScale(myData, value, dims);
+  var xAxis = d3.axisBottom(xScale);
+
+  d3.select("svg")
+    .append("g")
+    .attr("transform", `translate(0, ${height - padding})`)
+    .call(xAxis);
+}
+function createYAxis(myData, value, dims) {
+  const { padding } = dims;
+  var yScale = createYScale(myData, value, dims);
+
+  var yAxis = d3.axisLeft(yScale);
+
+  d3.select("svg")
+    .append("g")
+    .attr("transform", `translate(${padding}, 0)`)
+    .call(yAxis);
+}
+function generateTitle() {
+  d3.select("svg").append("text").attr("x");
+}
+
 d3.queue()
   .defer(d3.json, "http://localhost:3000/data")
   .defer(d3.json, "http://localhost:3001/data")
-  .await((err, balances, accDetails) => {
-    if (err) throw err;
+  .await((err, res1, res2) => {
+    if (err) return console.log("err", err);
 
-    // 1. MANIPULATE / CLEAN THE DATA
-    var updatedData = balances.map((balanceObject) => {
-      balanceObject.accountName = accDetails.filter(
-        (each) => each.accNumber === balanceObject.accNumber
+    // combine/clean datasets
+    var updatedData = res1.map((each) => {
+      each.fullName = res2.filter(
+        (accDetail) => accDetail.accNumber === each.accNumber
       )[0].accName;
-      return balanceObject;
+      return each;
     });
-    console.log("Data: ", updatedData);
 
-    // 2. CREATE SCALES AND AXIS
-    var yScale = d3
-      .scaleLinear()
-      .domain([
-        d3.min(updatedData, (d) => d.balance) - 10000,
-        d3.max(updatedData, (d) => d.balance) + 10000,
-      ]) // Y = balance
-      // .domain(d3.extent(updatedData, (d) => d.balance)) // Y = balance
-      .range([height - padding, 0]);
-    // Vertical is their current account balance
-    var yAxis = d3.axisLeft(yScale);
-    // .tickSize(-width + 2 * padding)
-    // .tickSizeOuter(0);
+    // draw axes
+    createXAxis(updatedData, "savings", { height, width, padding });
+    let xScale = createXScale(updatedData, "savings", {
+      height,
+      width,
+      padding,
+    });
 
-    var xScale = d3
-      .scaleLinear()
-      .domain([
-        d3.min(updatedData, (d) => d.age - 10),
-        d3.max(updatedData, (d) => d.age) + 10,
-      ]) // Y = balance
-      // .domain(d3.extent(updatedData, (d) => d.age)) // X = age
-      .range([padding, width - padding]);
-    // Horizontal is their age
+    createYAxis(updatedData, "age", { height, width, padding });
+    let yScale = createYScale(updatedData, "age", {
+      height,
+      width,
+      padding,
+    });
 
-    var xAxis = d3.axisBottom(xScale); // .tickSize(-height + 2 * padding);
+    let radiusScale = createRadiusScale(updatedData, "balance", {
+      height,
+      width,
+      padding,
+    });
 
-    var rScale = d3
-      .scaleLinear()
-      .domain(d3.extent(updatedData, (d) => d.savings)) // RADIUS = savings/$
-      .range([5, 25]);
+    let colorScale = createColorScale(updatedData, "homeOwner");
+    // draw main canvas
+    d3.select("svg").attr("height", height).attr("width", width);
 
-    var colorScale = d3
-      .scaleLinear()
-      .domain(d3.extent(updatedData, (d) => d.homeOwner)) // COLOR = homeowner?
-      .range(["red", "green"]);
-
+    // plot the circles
     d3.select("svg")
-      .append("g")
-      .attr("transform", `translate(0, ${height - padding})`)
-      .call(xAxis);
-
-    d3.select("svg")
-      .append("g")
-      .attr("transform", `translate(${padding}, 0)`)
-      .call(yAxis);
-
-    // Y AXIS TITLE
-    d3.select("svg")
-      .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("x", -height / 2)
-      .attr("y", 30)
-      .attr("dy", "-1.1em")
-      .style("text-anchor", "middle")
-      .text("balance/$");
-
-    // X AXIS TITLE
-    d3.select("svg")
-      .append("text")
-      .attr("x", width / 2)
-      .attr("y", height - padding)
-      .attr("dy", "1.5em")
-      .style("text-anchor", "middle")
-      .text("Age of Account Holder");
-
-    d3.select("svg")
-      .attr("height", height)
-      .attr("width", width)
       .selectAll("circle")
       .data(updatedData)
       .enter()
       .append("circle")
-      .transition()
-      .delay(100)
-      .attr("r", (d) => rScale(d.savings))
-      .attr("fill", (d) => colorScale(d.homeOwner))
-      .attr("cx", (d) => xScale(d.age))
-      .attr("cy", (d) => yScale(d.balance))
-      .attr("stroke", "#fff");
+      .attr("cy", (d) => height - padding)
+      .attr("cx", (d) => width / 2)
+      .transition("ease")
+      .duration(500)
+      .delay((d, i) => i * 20)
+      .attr("cx", (d) => xScale(d.savings))
+      .attr("cy", (d) => yScale(d.age))
+      .attr("r", (d) => radiusScale(d.balance))
+      .attr("stroke", "#fff")
+      .attr("fill", (d) => colorScale(d.homeOwner));
   });
-
-// hook onto SVG
-
-// draw elements
-
-// update elements
